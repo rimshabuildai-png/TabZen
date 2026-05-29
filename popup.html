@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=380, initial-scale=1.0">
+  <title>TabZen</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+  <div class="app">
+    <div id="sprintBar" class="sprint-bar hidden">
+      <div class="sprint-bar-left">
+        <span class="sprint-label">Focus Sprint</span>
+        <span id="sprintGoalText" class="sprint-goal-text"></span>
+      </div>
+      <div class="sprint-bar-right">
+        <span id="sprintTimer" class="sprint-timer">45:00</span>
+        <button id="endSprintBtn" class="end-sprint-btn">End</button>
+      </div>
+    </div>
+
+    <div class="header">
+      <div class="header-top-message"></div>
+      <div class="header-center">
+        <div class="tab-count-glow"></div>
+        <div class="tab-count-large">0</div>
+        <div class="tab-count-label">Active Tabs</div>
+        <div class="tab-status">
+          <span class="status-dot"></span>
+          <span class="status-text"></span>
+        </div>
+        <div class="header-subtitle-bottom"></div>
+      </div>
+    </div>
+
+    <!-- Save Session Button -->
+    <div style="padding: 0 16px 10px 16px;">
+      <button id="save-session-btn" class="save-session-button" type="button">
+        <span class="save-text">Save My Session</span>
+      </button>
+    </div>
+
+    <!-- Focus Sprint Button -->
+    <div style="padding: 0 16px 6px 16px;">
+      <button id="startSprintBtn" class="sprint-btn" type="button">
+        Start Focus Sprint
+      </button>
+      <p style="text-align:center; font-size:11px; color:#1e293b; margin: 7px 0 0 0; padding: 0; letter-spacing:0.2px;">
+        Hides distracting tabs · Locks you in for 45 mins
+      </p>
+    </div>
+
+    <div class="selection-controls">
+      <button id="selectAllBtn">Select All</button>
+      <button id="clearAllBtn">Clear</button>
+      <button id="selectWorkBtn">Select Work</button>
+    </div>
+
+    <div id="tab-list" class="tab-list"></div>
+  </div>
+
+  <div id="saved-sessions-section" class="saved-sessions-section">
+    <h3 class="saved-title">Your Safe Spaces</h3>
+    <div id="saved-sessions-list"></div>
+  </div>
+
+  <!-- Save Session Modal -->
+  <div id="save-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 class="modal-title">Save & Remember This</h2>
+        <button id="modal-close-btn" class="modal-close" type="button">×</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="input-group">
+          <label for="session-name-input" class="input-label">Session Name</label>
+          <input type="text" id="session-name-input" class="session-name-input" maxlength="50" autocomplete="off" />
+          <span class="input-helper">Give this session a name you'll recognise</span>
+        </div>
+
+        <div class="input-group">
+          <label for="session-note-input" class="input-label">What were you doing? What's next? <span style="opacity:0.4;font-weight:400;">(optional)</span></label>
+          <textarea id="session-note-input" class="session-note-input" placeholder="e.g. Writing proposal for client. Next: add pricing section..." maxlength="200"></textarea>
+          <span class="input-helper">You'll see this when you restore — so you remember exactly where you left off</span>
+        </div>
+
+        <div class="checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="close-after-save" class="checkbox-input" />
+            <span class="checkbox-text">Close all tabs after saving</span>
+          </label>
+          <span class="checkbox-helper">Start fresh after saving your session</span>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="modal-cancel-btn" class="modal-btn modal-btn-cancel" type="button">Cancel</button>
+        <button id="modal-save-btn" class="modal-btn modal-btn-save" type="button">Save Session</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Focus Sprint Modal -->
+  <div id="sprintModal" class="sprint-modal hidden">
+    <div class="sprint-modal-content">
+      <h2>Start Focus Sprint</h2>
+      <p class="sprint-subtext">
+        What are you trying to finish in this sprint?
+      </p>
+      <input
+        type="text"
+        id="sprintGoalInput"
+        placeholder="e.g. Finish the intro edit..."
+        maxlength="120"
+      />
+      <div class="sprint-actions">
+        <button id="confirmSprintBtn" class="primary-btn" type="button">
+          Start 45-Min Sprint
+        </button>
+        <button id="cancelSprintBtn" class="secondary-btn" type="button">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
