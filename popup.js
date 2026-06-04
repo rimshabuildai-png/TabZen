@@ -321,8 +321,6 @@ const topMessages = [
 
         const categoryOrder = ['Entertainment', 'Work', 'Shopping', 'Social', 'Development', 'Other'];
 
-    
-
         categoryOrder.forEach(function (categoryName) {
           const group = groupedTabs[categoryName];
           if (!group || !Array.isArray(group.tabs) || group.tabs.length === 0) return;
@@ -396,7 +394,10 @@ const topMessages = [
           categoryGroupEl.appendChild(contentEl);
           tabListEl.appendChild(categoryGroupEl);
 
-          setExpanded(true);
+          // FIX: requestAnimationFrame ensures DOM is rendered before expanding
+          requestAnimationFrame(function() {
+            setExpanded(true);
+          });
         });
 
         console.log('TabZen: Loaded tabs:', allTabs);
@@ -471,7 +472,6 @@ const topMessages = [
         leftSection.appendChild(name);
         leftSection.appendChild(meta);
 
-        // ✅ CONTEXT NOTE — shows saved note on the card
         if (session.note && session.note.length > 0) {
           const noteEl = document.createElement("div");
           noteEl.className = "saved-session-note";
@@ -577,7 +577,6 @@ const topMessages = [
         chrome.tabs.query({}, function (tabs) {
           if (!Array.isArray(tabs)) return;
 
-          // ✅ SAVES THE CONTEXT NOTE with the session
           const sessionData = {
             id: Date.now(),
             name: sessionName,
@@ -593,7 +592,7 @@ const topMessages = [
             const existingSessions = result.savedSessions || [];
 
             if (existingSessions.length >= 3) {
-              showToast("You've reached your focus limit.", "error");
+              showToast("You've reached your 3-session limit. Upgrade to Pro for unlimited.", "info");
               return;
             }
 
@@ -602,7 +601,6 @@ const topMessages = [
             chrome.storage.local.set({ savedSessions: updatedSessions }, function () {
               modalOverlay.classList.remove("active");
               sessionNameInput.value = "";
-              // ✅ CLEARS the note input after saving
               if (sessionNoteInput) sessionNoteInput.value = "";
 
               renderSavedSessions();
