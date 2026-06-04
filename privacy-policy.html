@@ -5,84 +5,244 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TabZen — Privacy Policy</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      max-width: 780px;
-      margin: 60px auto;
-      padding: 0 24px;
-      line-height: 1.7;
-      color: #334155;
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 
+                   'Segoe UI', system-ui, sans-serif;
+      background: #0a0f1e;
+      color: #e2e8f0;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
-    h1 { color: #6366f1; font-size: 26px; margin-bottom: 4px; }
-    h2 { color: #334155; font-size: 17px; margin-top: 32px; }
-    p, li { color: #475569; font-size: 15px; }
-    ul { padding-left: 20px; }
-    .meta { color: #94a3b8; font-size: 13px; margin-bottom: 36px; }
-    a { color: #6366f1; }
+
+    .wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 24px 80px 24px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #818cf8;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #818cf8 0%, #a78bfa 50%, #c084fc 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .meta {
+      font-size: 12px;
+      color: #334155;
+      margin-bottom: 40px;
+      letter-spacing: 0.3px;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, 
+                  rgba(139, 92, 246, 0.3), transparent);
+      margin-bottom: 40px;
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-left: 3px solid #6366f1;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s ease;
+    }
+
+    .section:hover {
+      border-color: rgba(139, 92, 246, 0.3);
+      border-left-color: #a78bfa;
+    }
+
+    h2 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #a78bfa;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 14px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #94a3b8;
+      line-height: 1.8;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    li {
+      font-size: 14px;
+      color: #94a3b8;
+      line-height: 1.7;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #6366f1;
+      font-size: 12px;
+    }
+
+    strong {
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+
+    .never-list li::before {
+      content: '✗';
+      color: #ef4444;
+    }
+
+    a {
+      color: #818cf8;
+      text-decoration: none;
+    }
+
+    a:hover { color: #a78bfa; }
+
+    .footer {
+      margin-top: 48px;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-size: 18px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #818cf8, #a78bfa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+    }
+
+    .footer-tagline {
+      font-size: 11px;
+      color: #334155;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
   </style>
 </head>
 <body>
-  <h1>TabZen — Privacy Policy</h1>
-  <p class="meta">Last updated: June 2026</p>
+  <div class="wrapper">
 
-  <p>TabZen is an ADHD-friendly Chrome extension for tab management. 
-  This Privacy Policy explains what data TabZen accesses, how it is 
-  used, and what we never do with it.</p>
+    <div class="badge">Legal</div>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: June 2026</p>
+    <div class="divider"></div>
 
-  <h2>1. Data We Access</h2>
-  <ul>
-    <li><strong>Tabs API:</strong> To read the titles, URLs, and 
-    favicons of your currently open tabs so they can be displayed 
-    and categorised inside the extension.</li>
-    <li><strong>Storage API (chrome.storage.local):</strong> To save 
-    your sessions and sprint timer state locally on your device.</li>
-  </ul>
+    <div class="section">
+      <h2>Overview</h2>
+      <p>TabZen is an ADHD-friendly Chrome extension for tab management. 
+      This Privacy Policy explains what data TabZen accesses, how it 
+      is used, and what we never do with it. We built TabZen to protect 
+      your mental space — and that includes your data.</p>
+    </div>
 
-  <h2>2. What We Do With Your Data</h2>
-  <ul>
-    <li>All data is stored <strong>only on your device</strong> using 
-    Chrome's built-in local storage.</li>
-    <li>Tab information is used only to display and organise tabs 
-    within the extension popup.</li>
-    <li>Saved sessions (Safe Spaces) are stored only on your device 
-    and are never transmitted anywhere.</li>
-  </ul>
+    <div class="section">
+      <h2>Data We Access</h2>
+      <ul>
+        <li><strong>Tabs API:</strong> To read the titles, URLs, and 
+        favicons of your currently open tabs so they can be displayed 
+        and categorised inside the extension popup.</li>
+        <li><strong>Storage API (chrome.storage.local):</strong> To save 
+        your sessions (Safe Spaces) and sprint timer state locally 
+        on your device only.</li>
+      </ul>
+    </div>
 
-  <h2>3. What We Never Do</h2>
-  <ul>
-    <li>We <strong>never</strong> collect, transmit, or share your 
-    browsing history.</li>
-    <li>We <strong>never</strong> send any data to external servers.</li>
-    <li>We <strong>never</strong> sell, share, or monetise your data 
-    in any way.</li>
-    <li>We <strong>never</strong> track your activity across websites.</li>
-    <li>We <strong>never</strong> use analytics that collect personal 
-    information.</li>
-  </ul>
+    <div class="section">
+      <h2>What We Do With Your Data</h2>
+      <ul>
+        <li>All data is stored <strong>only on your device</strong> using 
+        Chrome's built-in local storage.</li>
+        <li>Tab information is used only to display and organise tabs 
+        within the extension popup.</li>
+        <li>Saved sessions are stored only on your device and are 
+        never transmitted anywhere.</li>
+      </ul>
+    </div>
 
-  <h2>4. Permissions Explained</h2>
-  <ul>
-    <li><strong>"tabs" permission:</strong> Required to read your 
-    currently open tabs. This data never leaves your device.</li>
-    <li><strong>"storage" permission:</strong> Required to save your 
-    sessions between browser sessions. Stored locally on your 
-    device only.</li>
-    <li><strong>"host_permissions" (all URLs):</strong> Required only 
-    to load favicon icons for each tab so they display correctly 
-    in the extension. No page content is ever read or stored.</li>
-  </ul>
+    <div class="section">
+      <h2>What We Never Do</h2>
+      <ul class="never-list">
+        <li>Collect, transmit, or share your browsing history.</li>
+        <li>Send any data to external servers.</li>
+        <li>Sell, share, or monetise your data in any way.</li>
+        <li>Track your activity across websites.</li>
+        <li>Use analytics that collect personal information.</li>
+      </ul>
+    </div>
 
-  <h2>5. Children's Privacy</h2>
-  <p>TabZen is not directed at children under 13. We do not knowingly 
-  collect any information from children.</p>
+    <div class="section">
+      <h2>Permissions Explained</h2>
+      <ul>
+        <li><strong>"tabs" permission:</strong> Required to read your 
+        currently open tabs. This data never leaves your device.</li>
+        <li><strong>"storage" permission:</strong> Required to save your 
+        sessions between browser sessions. Stored locally only.</li>
+        <li><strong>"host_permissions" (all URLs):</strong> Required only 
+        to load favicon icons for each tab. No page content is ever 
+        read or stored.</li>
+      </ul>
+    </div>
 
-  <h2>6. Changes to This Policy</h2>
-  <p>If we update this Privacy Policy, the updated version will be 
-  posted at this URL with a revised "Last updated" date.</p>
+    <div class="section">
+      <h2>Children's Privacy</h2>
+      <p>TabZen is not directed at children under 13. We do not 
+      knowingly collect any information from children.</p>
+    </div>
 
-  <h2>7. Contact</h2>
-  <p>Questions about this Privacy Policy? Contact us at: 
-  <a href="mailto:rimsha.build.ai@gmail.com">rimsha.build.ai@gmail.com</a>
-  </p>
+    <div class="section">
+      <h2>Changes to This Policy</h2>
+      <p>If we update this Privacy Policy, the updated version will 
+      be posted at this URL with a revised "Last updated" date.</p>
+    </div>
+
+    <div class="section">
+      <h2>Contact</h2>
+      <p>Questions? Reach us at: 
+      <a href="mailto:rimsha.build.ai@gmail.com">
+      rimsha.build.ai@gmail.com</a></p>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">TabZen</div>
+      <div class="footer-tagline">Your Mental Space, Protected</div>
+    </div>
+
+  </div>
 </body>
 </html>
